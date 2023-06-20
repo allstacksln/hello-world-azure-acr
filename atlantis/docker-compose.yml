@@ -1,0 +1,17 @@
+version: "3"
+
+services:
+  atlantis:
+    build: .
+    ports:
+      - 4141:4141
+    # Contains the flags that atlantis uses in env var form
+    environment:
+      - ATLANTIS_GH_USER=emmanuel-apau
+      - ATLANTIS_GH_TOKEN=${GITHUB_TOKEN}
+      - ATLANTIS_GH_WEBHOOK_SECRET=${GITHUB_WEBHOOK_SECRET}
+      - ATLANTIS_REPO_ALLOWLIST=github.com/emmanuel-apau/*
+      - ARM_CLIENT_ID=${ARM_CLIENT_ID}
+      - ARM_CLIENT_SECRET=${ARM_CLIENT_SECRET}
+      - ARM_SUBSCRIPTION_ID=${ARM_SUBSCRIPTION_ID}
+      - ARM_TENANT_ID=${ARM_TENANT_ID}
